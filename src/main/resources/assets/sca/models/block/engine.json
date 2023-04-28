@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/cube_all",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "sca:block/engine",
+		"particle": "sca:block/engine"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [4, 12, 8, 16], "texture": "#0"},
+				"east": {"uv": [0, 12, 4, 16], "texture": "#0"},
+				"south": {"uv": [12, 12, 16, 16], "texture": "#0"},
+				"west": {"uv": [8, 12, 12, 16], "texture": "#0"},
+				"up": {"uv": [8, 12, 4, 8], "texture": "#0"},
+				"down": {"uv": [12, 8, 8, 12], "texture": "#0"}
+			}
+		}
+	]
+}

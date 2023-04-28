@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "sca:block/engine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "sca:block/engine"
+    },
+    "facing=south": {
+      "model": "sca:block/engine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "sca:block/engine",
+      "y": 270
+    }
+  }
+}

@@ -1,7 +1,11 @@
 package me.abraxator;
 
 import com.mojang.logging.LogUtils;
+import me.abraxator.data.ModBlockStateProvider;
+import me.abraxator.init.ModBlocks;
+import me.abraxator.init.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -34,7 +38,8 @@ public class SCA
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
-
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -44,5 +49,9 @@ public class SCA
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+    }
+
+    public static ResourceLocation scaLoc(String s){
+        return new ResourceLocation(MOD_ID, s);
     }
 }
