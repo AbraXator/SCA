@@ -1,16 +1,108 @@
 {
   "variants": {
-    "stack=1": {
+    "facing=down,stack=1": {
+      "model": "sca:block/tire_stack_1",
+      "x": 180
+    },
+    "facing=down,stack=2": {
+      "model": "sca:block/tire_stack_2",
+      "x": 180
+    },
+    "facing=down,stack=3": {
+      "model": "sca:block/tire_stack_3",
+      "x": 180
+    },
+    "facing=down,stack=4": {
+      "model": "sca:block/tire_stack_4",
+      "x": 180
+    },
+    "facing=east,stack=1": {
+      "model": "sca:block/tire_east",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,stack=2": {
+      "model": "sca:block/tire_east",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,stack=3": {
+      "model": "sca:block/tire_east",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,stack=4": {
+      "model": "sca:block/tire_east",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north,stack=1": {
+      "model": "sca:block/tire_north",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,stack=2": {
+      "model": "sca:block/tire_north",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,stack=3": {
+      "model": "sca:block/tire_north",
+      "x": 90,
+      "y": 180
+    },
+    "facing=north,stack=4": {
+      "model": "sca:block/tire_north",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,stack=1": {
+      "model": "sca:block/tire_south",
+      "x": 90
+    },
+    "facing=south,stack=2": {
+      "model": "sca:block/tire_south",
+      "x": 90
+    },
+    "facing=south,stack=3": {
+      "model": "sca:block/tire_south",
+      "x": 90
+    },
+    "facing=south,stack=4": {
+      "model": "sca:block/tire_south",
+      "x": 90
+    },
+    "facing=up,stack=1": {
       "model": "sca:block/tire_stack_1"
     },
-    "stack=2": {
+    "facing=up,stack=2": {
       "model": "sca:block/tire_stack_2"
     },
-    "stack=3": {
+    "facing=up,stack=3": {
       "model": "sca:block/tire_stack_3"
     },
-    "stack=4": {
+    "facing=up,stack=4": {
       "model": "sca:block/tire_stack_4"
+    },
+    "facing=west,stack=1": {
+      "model": "sca:block/tire_west",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,stack=2": {
+      "model": "sca:block/tire_west",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,stack=3": {
+      "model": "sca:block/tire_west",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west,stack=4": {
+      "model": "sca:block/tire_west",
+      "x": 90,
+      "y": 90
     }
   }
 }

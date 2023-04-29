@@ -4,12 +4,14 @@ import me.abraxator.SCA;
 import me.abraxator.blocks.TireBlock;
 import me.abraxator.init.ModBlocks;
 import me.abraxator.util.SCALoc;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -27,28 +29,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        this.getVariantBuilder(ModBlocks.TIRE.get())
-                .partialState()
-                .with(TireBlock.STACK, 1)
-                .modelForState()
-                .modelFile(tireFile(1))
-                .addModel()
-                .partialState()
-                .with(TireBlock.STACK, 2)
-                .modelForState()
-                .modelFile(tireFile(2))
-                .addModel()
-                .partialState()
-                .with(TireBlock.STACK, 3)
-                .modelForState()
-                .modelFile(tireFile(3))
-                .addModel()
-                .partialState()
-                .with(TireBlock.STACK, 4)
-                .modelForState()
-                .modelFile(tireFile(4))
-                .addModel();
+        tire();
         //horizontalBlock(ModBlocks.ENGINE.get(), new ModelFile.ExistingModelFile(new SCALoc("block/engine"), existingFileHelper));
+    }
+
+    private void tire(){
+        getVariantBuilder(ModBlocks.TIRE.get())
+                .forAllStates(state -> {
+                    Direction dir = state.getValue(TireBlock.FACING);
+                    int stack = state.getValue(TireBlock.STACK);
+                    String s = TireBlock.isDownNUp(state) ? "stack_" + stack : dir.getName();
+                    ModelFile modelFile = new ModelFile.ExistingModelFile(new SCALoc("block/tire_" + s), existingFileHelper);
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFile)
+                            .rotationX(dir == Direction.DOWN ? 180 : dir.getAxis().isHorizontal() ? 90 : 0)
+                            .rotationY(dir.getAxis().isVertical() ? 0 : (((int) dir.toYRot())) % 360)
+                            .build();
+                });
     }
 
     private void block(Block block){
