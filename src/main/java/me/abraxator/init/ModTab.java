@@ -1,7 +1,6 @@
 package me.abraxator.init;
 
 import me.abraxator.SCA;
-import me.abraxator.data.ModBlockStateProvider;
 import me.abraxator.util.SCALoc;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

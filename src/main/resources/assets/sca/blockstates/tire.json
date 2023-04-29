@@ -17,60 +17,61 @@
       "x": 180
     },
     "facing=east,stack=1": {
-      "model": "sca:block/tire_east",
+      "model": "sca:block/tire_stack_1",
       "x": 90,
       "y": 270
     },
     "facing=east,stack=2": {
-      "model": "sca:block/tire_east",
-      "x": 90,
-      "y": 270
+      "model": "sca:block/tire_stack_1",
+      "x": 90
     },
     "facing=east,stack=3": {
-      "model": "sca:block/tire_east",
-      "x": 90,
-      "y": 270
+      "model": "sca:block/tire_stack_1",
+      "x": 90
     },
     "facing=east,stack=4": {
-      "model": "sca:block/tire_east",
+      "model": "sca:block/tire_stack_1",
+      "x": 90
+    },
+    "facing=north,stack=1": {
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,stack=2": {
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,stack=3": {
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,stack=4": {
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south,stack=1": {
+      "model": "sca:block/tire_stack_1",
       "x": 90,
       "y": 270
     },
-    "facing=north,stack=1": {
-      "model": "sca:block/tire_north",
-      "x": 90,
-      "y": 180
-    },
-    "facing=north,stack=2": {
-      "model": "sca:block/tire_north",
-      "x": 90,
-      "y": 180
-    },
-    "facing=north,stack=3": {
-      "model": "sca:block/tire_north",
-      "x": 90,
-      "y": 180
-    },
-    "facing=north,stack=4": {
-      "model": "sca:block/tire_north",
-      "x": 90,
-      "y": 180
-    },
-    "facing=south,stack=1": {
-      "model": "sca:block/tire_south",
-      "x": 90
-    },
     "facing=south,stack=2": {
-      "model": "sca:block/tire_south",
-      "x": 90
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 270
     },
     "facing=south,stack=3": {
-      "model": "sca:block/tire_south",
-      "x": 90
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 270
     },
     "facing=south,stack=4": {
-      "model": "sca:block/tire_south",
-      "x": 90
+      "model": "sca:block/tire_stack_1",
+      "x": 90,
+      "y": 270
     },
     "facing=up,stack=1": {
       "model": "sca:block/tire_stack_1"
@@ -85,24 +86,24 @@
       "model": "sca:block/tire_stack_4"
     },
     "facing=west,stack=1": {
-      "model": "sca:block/tire_west",
+      "model": "sca:block/tire_stack_1",
       "x": 90,
       "y": 90
     },
     "facing=west,stack=2": {
-      "model": "sca:block/tire_west",
+      "model": "sca:block/tire_stack_1",
       "x": 90,
-      "y": 90
+      "y": 180
     },
     "facing=west,stack=3": {
-      "model": "sca:block/tire_west",
+      "model": "sca:block/tire_stack_1",
       "x": 90,
-      "y": 90
+      "y": 180
     },
     "facing=west,stack=4": {
-      "model": "sca:block/tire_west",
+      "model": "sca:block/tire_stack_1",
       "x": 90,
-      "y": 90
+      "y": 180
     }
   }
 }

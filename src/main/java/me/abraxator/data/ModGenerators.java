@@ -18,7 +18,6 @@ public class ModGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         PackOutput output = generator.getPackOutput();
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, MOD_ID, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, MOD_ID, existingFileHelper));
     }
 

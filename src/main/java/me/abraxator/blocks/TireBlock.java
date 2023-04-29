@@ -107,10 +107,10 @@ public class TireBlock extends Block {
         }else {
             return switch (pState.getValue(FACING)) {
                 case DOWN, UP -> SHAPE1;
-                case EAST -> EAST;
-                case NORTH -> NORTH;
-                case SOUTH -> SOUTH;
-                case WEST -> WEST;
+                case EAST -> WEST;
+                case NORTH -> SOUTH;
+                case SOUTH -> NORTH;
+                case WEST -> EAST;
             };
         }
     }

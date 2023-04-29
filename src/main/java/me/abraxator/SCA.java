@@ -1,7 +1,6 @@
 package me.abraxator;
 
 import com.mojang.logging.LogUtils;
-import me.abraxator.data.ModBlockStateProvider;
 import me.abraxator.init.ModBlocks;
 import me.abraxator.init.ModItems;
 import net.minecraft.client.Minecraft;
