@@ -2,6 +2,7 @@ package me.abraxator.init;
 
 import me.abraxator.SCA;
 import me.abraxator.blocks.EngineBlock;
+import me.abraxator.blocks.ShaftBlock;
 import me.abraxator.blocks.TireBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -21,6 +22,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TIRE = registerBlock("tire", () -> new TireBlock(BlockBehaviour.Properties.of(Material.METAL)));
     public static final RegistryObject<Block> ENGINE = registerBlock("engine", () -> new EngineBlock(BlockBehaviour.Properties.of(Material.METAL)));
+    public static final RegistryObject<Block> SHAFT = registerBlock("shaft", () -> new ShaftBlock(BlockBehaviour.Properties.of(Material.METAL)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

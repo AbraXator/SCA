@@ -31,28 +31,28 @@ public class TireBlock extends Block {
     public static final VoxelShape SHAPE2 = Block.box(0, 0.001, 0, 16, 6, 16);
     public static final VoxelShape SHAPE3 = Block.box(0, 0.001, 0, 16, 9, 16);
     public static final VoxelShape SHAPE4 = Block.box(0, 0.001, 0, 16, 12, 16);
-    public static final VoxelShape EAST = Stream.of(
+    public static final VoxelShape WEST = Stream.of(
             Block.box(13.25, 0, 4, 16.25, 16, 12),
             Block.box(13.25, 0, 0, 16.25, 16, 16),
             Block.box(13.25, 4, 0, 16.25, 12, 16),
             Block.box(13.25, 2, 1, 16.25, 14, 15),
             Block.box(13.25, 1, 2, 16.25, 15, 14)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
-    public static final VoxelShape SOUTH = Stream.of(
+    public static final VoxelShape NORTH = Stream.of(
             Block.box(4, 0, 13.25, 12, 16, 16.25),
             Block.box(0, 0, 13.25, 16, 16, 16.25),
             Block.box(0, 4, 13.25, 16, 12, 16.25),
             Block.box(1, 2, 13.25, 15, 14, 16.25),
             Block.box(2, 1, 13.25, 14, 15, 16.25)
             ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
-    public static final VoxelShape WEST = Stream.of(
+    public static final VoxelShape EAST = Stream.of(
             Block.box(0, 0, 4, 3, 16, 12),
             Block.box(0, 0, 0, 3, 16, 16),
             Block.box(0, 4, 0, 3, 12, 16),
             Block.box(0, 2, 1, 3, 14, 15),
             Block.box(0, 1, 2, 3, 15, 14)
             ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
-    public static final VoxelShape NORTH = Stream.of(
+    public static final VoxelShape SOUTH = Stream.of(
             Block.box(4, 0, 0, 12, 16, 3),
             Block.box(0, 0, 0, 16, 16, 3),
             Block.box(0, 4, 0, 16, 12, 3),
@@ -69,12 +69,17 @@ public class TireBlock extends Block {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockPos blockPos = pContext.getClickedPos();
+        Direction direction = pContext.getClickedFace();
         BlockState blockState = pContext.getLevel().getBlockState(blockPos);
 
-        if(blockState.is(this) && isDownNUp(blockState)){
-            return pContext.getLevel().getBlockState(blockPos).setValue(STACK, Math.min(4, blockState.getValue(STACK) + 1));
+        if(direction.getAxis().isVertical() || blockState.is(this)){
+            if(blockState.is(this)) {
+                return pContext.getLevel().getBlockState(blockPos).setValue(STACK, Math.min(4, blockState.getValue(STACK) + 1));
+            } else {
+                return defaultBlockState().setValue(FACING, Direction.UP);
+            }
         } else {
-            return defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+            return defaultBlockState().setValue(FACING, direction.getOpposite());
         }
     }
 
@@ -84,19 +89,17 @@ public class TireBlock extends Block {
 
     }
 
-    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
+    }
+
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
     @Override
-    public BlockState rotate(BlockState state, LevelAccessor level, BlockPos pos, Rotation direction) {
-        return state.setValue(FACING, direction.rotate(state.getValue(FACING)));
-    }
-
-    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(isDownNUp(pState)){
+        if(pState.getValue(FACING).getAxis().isVertical()){
             return switch (pState.getValue(STACK)) {
                 case 1 -> SHAPE1;
                 case 2 -> SHAPE2;
